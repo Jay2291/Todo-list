@@ -1,0 +1,130 @@
+/* Apply a gradient background to the whole app */
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to bottom, #68e0cf, #209cff);
+  margin: 0;
+}
+
+/* Container for the app */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.todo-app {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  text-align: center;
+}
+
+/* Heading */
+.todo-app h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Input container */
+.input-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  width: 70%;
+  padding: 10px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* Minimal "+" button */
+button.add-btn {
+  background-color: #9c27b0;
+  border: none;
+  color: white;
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button.add-btn::before {
+  content: '+';
+}
+
+button.add-btn:hover {
+  background-color: #7b1fa2;
+}
+
+/* Task list */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f9f9f9;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+/* Minimal dustbin button */
+li button.dustbin-btn {
+  background-color: #f44336;
+  border: none;
+  font-size: 14px;
+  color: white;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  padding: 10px;
+  transition: background-color 0.3s ease;
+}
+
+li button.dustbin-btn::before {
+  content: '\1F5D1'; 
+}
+
+li button.dustbin-btn:hover {
+  background-color: #8d1d1d;
+}
+
+/* Footer */
+.footer {
+  margin-top: 20px;
+}
+
+.footer p {
+  margin-bottom: 10px;
+}
+
+.footer button {
+  background-color: #673ab7;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.footer button:hover {
+  background-color: #512da8;
+}
