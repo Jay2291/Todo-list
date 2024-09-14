@@ -12,7 +12,7 @@ function App() {
 
   const fetchTodos = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/todos');
+      const response = await axios.get('https://todo-list-flask-qzds.onrender.com/');
       setTodos(response.data.list);
     } catch (error) {
       console.error('Error fetching todos:', error);
@@ -23,7 +23,7 @@ function App() {
     if (!newTask.trim()) return;
 
     try {
-      await axios.post('http://localhost:5000/add_todos', { task: newTask });
+      await axios.post('https://todo-list-flask-qzds.onrender.com/add_todos', { task: newTask });
       setNewTask('');
       fetchTodos();
     } catch (error) {
@@ -33,7 +33,7 @@ function App() {
 
   const deleteTodo = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/todos/${id}`);
+      await axios.delete(`https://todo-list-flask-qzds.onrender.com/todos/${id}`);
       fetchTodos();
     } catch (error) {
       console.error('Error deleting todo:', error);
@@ -42,7 +42,7 @@ function App() {
 
   const clearAllTodos = async () => {
     try {
-      await axios.delete('http://localhost:5000/todos/clear');
+      await axios.delete('https://todo-list-flask-qzds.onrender.com/todos/clear');
       fetchTodos();
     } catch (error) {
       console.error('Error clearing todos:', error);
