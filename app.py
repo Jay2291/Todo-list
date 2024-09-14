@@ -19,7 +19,7 @@ class Todos(db.Model):
     def __init__(self, title):
         self.title = title
 
-@app.route('https://todo-list-flask-qzds.onrender.com/', methods=['GET'])
+@app.route('/', methods=['GET'])
 def home():
     todo = Todos.query.all()
     todo_dict = {tod.id: tod.title for tod in todo}
@@ -30,7 +30,7 @@ def home():
     print(arr)
     return jsonify({"list": arr})
 
-@app.route('https://todo-list-flask-qzds.onrender.com/add_todos', methods=['POST'])
+@app.route('/add_todos', methods=['POST'])
 def add_task():
     title = request.json['task']
     todo = Todos(title)
@@ -38,7 +38,7 @@ def add_task():
     db.session.commit()
     return{"Msg": "Task added"}
 
-@app.route('https://todo-list-flask-qzds.onrender.com/todos/<int:id>', methods=['DELETE'])
+@app.route('/todos/<int:id>', methods=['DELETE'])
 def delete_todo(id):
     todo = Todos.query.get(id)
     if todo:
@@ -47,7 +47,7 @@ def delete_todo(id):
         return jsonify({"message": "Todo deleted successfully!"})
     return jsonify({"message": "Todo not found!"}), 404
 
-@app.route('https://todo-list-flask-qzds.onrender.com/todos/clear', methods=['DELETE'])
+@app.route('/todos/clear', methods=['DELETE'])
 def clear_all():
     try:
         db.session.query(Todos).delete()
@@ -56,3 +56,5 @@ def clear_all():
     except Exception as e:
         return jsonify({"message": "Failed to clear todos", "error": str(e)})
 
+if __name__ == "__main__":
+    app.run()
