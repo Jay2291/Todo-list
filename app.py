@@ -6,7 +6,7 @@ app = Flask(__name__)
 CORS(app)
 app.secret_key = "key"
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://todo_list_tcca_user:u9tDAjOMAYsdc65Kkvb3bVy86xZ33pHv@dpg-criq3t5umphs73copeg0-a.oregon-postgres.render.com/todo_list_tcca'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
 db = SQLAlchemy(app)
 
 class Todos(db.Model):
