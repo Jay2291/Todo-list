@@ -22,7 +22,7 @@ class Todos(db.Model):
 @app.route('/', methods=['GET'])
 def home():
     todo = Todos.query.all()
-    todo_dict = {tod.id: tod.title for tod in todo}
+    # todo_dict = {tod.id: tod.title for tod in todo}
     arr = []
     for to in todo:
         dt = {"id":to.id, "title":to.title}
